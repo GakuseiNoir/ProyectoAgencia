@@ -22,7 +22,7 @@ namespace ProyectoAgencia
 
         private void btnacep_Click(object sender, EventArgs e)
         {
-            string[] r = new string[2];
+            /*string[] r = new string[2];
             string nombreUsuario = txtnick.Text;
 
             // Valida el usuario con el manejador_login
@@ -33,6 +33,19 @@ namespace ProyectoAgencia
             {
                 this.Hide();
                 FrmMenu menu = new FrmMenu();
+                menu.Show();
+            }
+            else
+            {
+                MessageBox.Show("Error de credenciales, revise");
+            }*/
+            string[] r = new string[2];
+            string nombreUsuario = txtnick.Text;
+            r = ml.validar(txtnick.Text, txtpass.Text);
+            if (r[0].Equals("C0rr3ct0"))
+            {
+                this.Hide();
+                FrmMenu menu = new FrmMenu(nombreUsuario);
                 menu.Show();
             }
             else

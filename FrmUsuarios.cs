@@ -15,6 +15,7 @@ namespace ProyectoAgencia
     public partial class FrmUsuarios : Form
     {
         ManejadorUsuarios mu;
+        private bool[] permissions;
         Funciones f;
         public static int idu = 0;
         int fila = 0, columna = 0;
@@ -30,21 +31,18 @@ namespace ProyectoAgencia
 
         private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvUsuarios.SelectedRows.Count > 0)
-            {
-                btnModificar.Enabled = true;
-                btnEliminar.Enabled = true;
-            }
-            else
-            {
-                btnModificar.Enabled = false;
-                btnEliminar.Enabled = false;
-            }
+            UpdateButtonStates();
+        }
+        private void UpdateButtonStates()
+        {
+            bool hasSelection = dgvUsuarios.SelectedRows.Count > 0;
+            btnModificar.Enabled = hasSelection && permissions[3]; // Update permission
+            btnEliminar.Enabled = hasSelection && permissions[2]; // Delete permission
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuarios.SelectedRows.Count > 0)
+            if (permissions[2] && dgvUsuarios.SelectedRows.Count > 0) // Check delete permission
             {
                 int idu = int.Parse(dgvUsuarios.SelectedRows[0].Cells["idu"].Value.ToString());
                 string nombre = dgvUsuarios.SelectedRows[0].Cells["nombre"].Value.ToString();
@@ -53,13 +51,19 @@ namespace ProyectoAgencia
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un usuario para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No tiene permiso para eliminar usuarios o no ha seleccionado un usuario.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnGestionarPermisos_Click(object sender, EventArgs e)
+        {
+            FrmPermisos frmPermisos = new FrmPermisos();
+            frmPermisos.ShowDialog();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (dgvUsuarios.SelectedRows.Count > 0)
+            if (permissions[3] && dgvUsuarios.SelectedRows.Count > 0) // Check update permission
             {
                 idu = int.Parse(dgvUsuarios.SelectedRows[0].Cells["idu"].Value.ToString());
                 txtNombre.Text = dgvUsuarios.SelectedRows[0].Cells["nombre"].Value.ToString();
@@ -72,16 +76,23 @@ namespace ProyectoAgencia
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un usuario para modificar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No tiene permiso para modificar usuarios o no ha seleccionado un usuario.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
-        public FrmUsuarios()
+        public FrmUsuarios(bool[] permissions)
         {
             InitializeComponent();
             f = new Funciones();
+            this.permissions = permissions;
             mu = new ManejadorUsuarios();
             CargarUsuarios();
+            ApplyPermissions();
+        }
+        private void ApplyPermissions()
+        {
+            btnGuardar.Enabled = permissions[1]; // Write permission
+            UpdateButtonStates();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -91,16 +102,28 @@ namespace ProyectoAgencia
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (idu > 0)
+            if (permissions[1]) // Check write permission
             {
-                mu.Modificar(txtNombre, txtApellidoP, txtApellidoM, txtNickname, txtPassword, dtpNacimiento, txtRfc, idu);
+                if (idu > 0 && permissions[3]) // Check update permission for modifications
+                {
+                    mu.Modificar(txtNombre, txtApellidoP, txtApellidoM, txtNickname, txtPassword, dtpNacimiento, txtRfc, idu);
+                }
+                else if (idu == 0) // New user
+                {
+                    mu.Guardar(txtNombre, txtApellidoP, txtApellidoM, txtNickname, txtPassword, dtpNacimiento, txtRfc);
+                }
+                else
+                {
+                    MessageBox.Show("No tiene permiso para modificar usuarios.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                LimpiarCampos();
+                CargarUsuarios();
             }
             else
             {
-                mu.Guardar(txtNombre, txtApellidoP, txtApellidoM, txtNickname, txtPassword, dtpNacimiento, txtRfc);
+                MessageBox.Show("No tiene permiso para guardar usuarios.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            LimpiarCampos();
-            CargarUsuarios();
         }
 
         private void LimpiarCampos()
@@ -119,6 +142,7 @@ namespace ProyectoAgencia
             string query = "SELECT * FROM usuarios";
             DataSet ds = f.mostrar(query, "usuarios");
             dgvUsuarios.DataSource = ds.Tables["usuarios"];
+            UpdateButtonStates();
         }
     }
 }

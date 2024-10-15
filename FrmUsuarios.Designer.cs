@@ -43,12 +43,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkActualizacion = new System.Windows.Forms.CheckBox();
-            this.chkEscritura = new System.Windows.Forms.CheckBox();
-            this.chkEliminacion = new System.Windows.Forms.CheckBox();
-            this.chkLectura = new System.Windows.Forms.CheckBox();
-            this.cmbFormularios = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
@@ -56,6 +50,7 @@
             this.lblnombre = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGestionarPermisos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,64 +185,6 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "NOMBRE";
             // 
-            // chkActualizacion
-            // 
-            this.chkActualizacion.AutoSize = true;
-            this.chkActualizacion.Location = new System.Drawing.Point(1329, 254);
-            this.chkActualizacion.Name = "chkActualizacion";
-            this.chkActualizacion.Size = new System.Drawing.Size(129, 23);
-            this.chkActualizacion.TabIndex = 41;
-            this.chkActualizacion.Text = "Actualizacion";
-            this.chkActualizacion.UseVisualStyleBackColor = true;
-            // 
-            // chkEscritura
-            // 
-            this.chkEscritura.AutoSize = true;
-            this.chkEscritura.Location = new System.Drawing.Point(1329, 185);
-            this.chkEscritura.Name = "chkEscritura";
-            this.chkEscritura.Size = new System.Drawing.Size(92, 23);
-            this.chkEscritura.TabIndex = 40;
-            this.chkEscritura.Text = "Escritura";
-            this.chkEscritura.UseVisualStyleBackColor = true;
-            // 
-            // chkEliminacion
-            // 
-            this.chkEliminacion.AutoSize = true;
-            this.chkEliminacion.Location = new System.Drawing.Point(1100, 254);
-            this.chkEliminacion.Name = "chkEliminacion";
-            this.chkEliminacion.Size = new System.Drawing.Size(114, 23);
-            this.chkEliminacion.TabIndex = 39;
-            this.chkEliminacion.Text = "Eliminacion";
-            this.chkEliminacion.UseVisualStyleBackColor = true;
-            // 
-            // chkLectura
-            // 
-            this.chkLectura.AutoSize = true;
-            this.chkLectura.Location = new System.Drawing.Point(1099, 185);
-            this.chkLectura.Name = "chkLectura";
-            this.chkLectura.Size = new System.Drawing.Size(87, 23);
-            this.chkLectura.TabIndex = 38;
-            this.chkLectura.Text = "Lectura";
-            this.chkLectura.UseVisualStyleBackColor = true;
-            // 
-            // cmbFormularios
-            // 
-            this.cmbFormularios.FormattingEnabled = true;
-            this.cmbFormularios.Location = new System.Drawing.Point(1150, 110);
-            this.cmbFormularios.Name = "cmbFormularios";
-            this.cmbFormularios.Size = new System.Drawing.Size(316, 27);
-            this.cmbFormularios.TabIndex = 37;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1048, 115);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 19);
-            this.label7.TabIndex = 36;
-            this.label7.Text = "FORMULARIO:";
-            // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(1270, 348);
@@ -321,11 +258,22 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnGestionarPermisos
+            // 
+            this.btnGestionarPermisos.Location = new System.Drawing.Point(775, 353);
+            this.btnGestionarPermisos.Name = "btnGestionarPermisos";
+            this.btnGestionarPermisos.Size = new System.Drawing.Size(233, 42);
+            this.btnGestionarPermisos.TabIndex = 49;
+            this.btnGestionarPermisos.Text = "GESTIONAR PERMISOS";
+            this.btnGestionarPermisos.UseVisualStyleBackColor = true;
+            this.btnGestionarPermisos.Click += new System.EventHandler(this.btnGestionarPermisos_Click);
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1529, 881);
+            this.Controls.Add(this.btnGestionarPermisos);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.dgvUsuarios);
@@ -333,12 +281,6 @@
             this.Controls.Add(this.lblnombre);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.chkActualizacion);
-            this.Controls.Add(this.chkEscritura);
-            this.Controls.Add(this.chkEliminacion);
-            this.Controls.Add(this.chkLectura);
-            this.Controls.Add(this.cmbFormularios);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpNacimiento);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtNickname);
@@ -380,12 +322,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chkActualizacion;
-        private System.Windows.Forms.CheckBox chkEscritura;
-        private System.Windows.Forms.CheckBox chkEliminacion;
-        private System.Windows.Forms.CheckBox chkLectura;
-        private System.Windows.Forms.ComboBox cmbFormularios;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridView dgvUsuarios;
@@ -393,5 +329,6 @@
         private System.Windows.Forms.Label lblnombre;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnGestionarPermisos;
     }
 }

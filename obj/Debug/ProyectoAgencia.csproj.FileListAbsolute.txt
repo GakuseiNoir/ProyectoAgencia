@@ -46,3 +46,4 @@ C:\Users\angel\OneDrive\Documentos\Visual-Studio-Workspace\ProyectoAgencia\obj\D
 C:\Users\angel\OneDrive\Documentos\Visual-Studio-Workspace\ProyectoAgencia\obj\Debug\Proyecto.0B079DD9.Up2Date
 C:\Users\angel\OneDrive\Documentos\Visual-Studio-Workspace\ProyectoAgencia\obj\Debug\ProyectoAgencia.exe
 C:\Users\angel\OneDrive\Documentos\Visual-Studio-Workspace\ProyectoAgencia\obj\Debug\ProyectoAgencia.pdb
+C:\Users\angel\OneDrive\Documentos\Visual-Studio-Workspace\ProyectoAgencia\obj\Debug\ProyectoAgencia.FrmPermisos.resources

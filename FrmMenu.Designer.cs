@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.mst = new System.Windows.Forms.MenuStrip();
-            this.btnProductos = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnHerramientas = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnUsuarios = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsFrmProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsFrmHerramientas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsFrmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mst.SuspendLayout();
             this.SuspendLayout();
@@ -41,9 +41,9 @@
             this.mst.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.mst.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.mst.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnProductos,
-            this.btnHerramientas,
-            this.btnUsuarios,
+            this.tsFrmProductos,
+            this.tsFrmHerramientas,
+            this.tsFrmUsuarios,
             this.btnExit});
             this.mst.Location = new System.Drawing.Point(0, 0);
             this.mst.Name = "mst";
@@ -52,27 +52,27 @@
             this.mst.TabIndex = 1;
             this.mst.Text = "menuStrip1";
             // 
-            // btnProductos
+            // tsFrmProductos
             // 
-            this.btnProductos.BackColor = System.Drawing.Color.MistyRose;
-            this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(131, 29);
-            this.btnProductos.Text = "PRODUCTOS";
+            this.tsFrmProductos.BackColor = System.Drawing.Color.MistyRose;
+            this.tsFrmProductos.Name = "tsFrmProductos";
+            this.tsFrmProductos.Size = new System.Drawing.Size(131, 29);
+            this.tsFrmProductos.Text = "PRODUCTOS";
             // 
-            // btnHerramientas
+            // tsFrmHerramientas
             // 
-            this.btnHerramientas.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnHerramientas.Name = "btnHerramientas";
-            this.btnHerramientas.Size = new System.Drawing.Size(157, 29);
-            this.btnHerramientas.Text = "HERRAMIENTAS";
+            this.tsFrmHerramientas.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tsFrmHerramientas.Name = "tsFrmHerramientas";
+            this.tsFrmHerramientas.Size = new System.Drawing.Size(157, 29);
+            this.tsFrmHerramientas.Text = "HERRAMIENTAS";
             // 
-            // btnUsuarios
+            // tsFrmUsuarios
             // 
-            this.btnUsuarios.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Size = new System.Drawing.Size(166, 29);
-            this.btnUsuarios.Text = "REGISTRO USERS";
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            this.tsFrmUsuarios.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.tsFrmUsuarios.Name = "tsFrmUsuarios";
+            this.tsFrmUsuarios.Size = new System.Drawing.Size(166, 29);
+            this.tsFrmUsuarios.Text = "REGISTRO USERS";
+            this.tsFrmUsuarios.Click += new System.EventHandler(this.tsFrmUsuarios_Click);
             // 
             // btnExit
             // 
@@ -100,9 +100,9 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mst;
-        private System.Windows.Forms.ToolStripMenuItem btnProductos;
-        private System.Windows.Forms.ToolStripMenuItem btnHerramientas;
-        private System.Windows.Forms.ToolStripMenuItem btnUsuarios;
+        private System.Windows.Forms.ToolStripMenuItem tsFrmProductos;
+        private System.Windows.Forms.ToolStripMenuItem tsFrmHerramientas;
+        private System.Windows.Forms.ToolStripMenuItem tsFrmUsuarios;
         private System.Windows.Forms.ToolStripMenuItem btnExit;
     }
 }

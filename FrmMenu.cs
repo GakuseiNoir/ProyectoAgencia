@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manejador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,20 +8,50 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace ProyectoAgencia
 {
     public partial class FrmMenu : Form
     {
-        public FrmMenu()
+        private Dictionary<string, bool[]> userPermissions;
+        ManejadorPermisos mp;
+        public FrmMenu(string username)
         {
             InitializeComponent();
+            LoadUserPermissions(username);
+            ApplyPermissions();
+        }
+        private void LoadUserPermissions(string username)
+        {
+            ManejadorPermisos mp = new ManejadorPermisos();
+            userPermissions = mp.ObtenerPermisos(username);
         }
 
-        private void btnUsuarios_Click(object sender, EventArgs e)
+        private void ApplyPermissions()
         {
-            FrmUsuarios Usuarios = new FrmUsuarios();
-            Usuarios.Show();
+            ApplyFormPermission("FrmUsuarios", tsFrmUsuarios);
+            ApplyFormPermission("FrmProductos", tsFrmProductos);
+            ApplyFormPermission("FrmHerramientas", tsFrmHerramientas);
+        }
+
+        private void ApplyFormPermission(string formName, ToolStripItem menuItem)
+        {
+            if (userPermissions.ContainsKey(formName))
+            {
+                bool[] permissions = userPermissions[formName];
+                menuItem.Enabled = permissions[0]; // Read permission
+            }
+            else
+            {
+                menuItem.Enabled = false;
+            }
+        }
+
+        private void tsFrmUsuarios_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios frm = new FrmUsuarios(userPermissions["FrmUsuarios"]);
+            frm.ShowDialog();
         }
     }
 }
