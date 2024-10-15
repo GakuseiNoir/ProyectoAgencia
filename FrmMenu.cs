@@ -64,5 +64,11 @@ namespace ProyectoAgencia
             FrmProductos frmp = new FrmProductos(userPermissions["FrmProductos"]);
             frmp.ShowDialog();
         }
+
+        private void tsFrmHerramientas_Click(object sender, EventArgs e)
+        {
+            FrmHerramientas frmh = new FrmHerramientas(userPermissions["FrmHerramientas"]);
+            frmh.ShowDialog();
+        }
     }
 }

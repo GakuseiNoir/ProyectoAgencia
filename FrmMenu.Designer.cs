@@ -66,6 +66,7 @@
             this.tsFrmHerramientas.Name = "tsFrmHerramientas";
             this.tsFrmHerramientas.Size = new System.Drawing.Size(157, 29);
             this.tsFrmHerramientas.Text = "HERRAMIENTAS";
+            this.tsFrmHerramientas.Click += new System.EventHandler(this.tsFrmHerramientas_Click);
             // 
             // tsFrmUsuarios
             // 
