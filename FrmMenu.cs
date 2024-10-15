@@ -53,5 +53,16 @@ namespace ProyectoAgencia
             FrmUsuarios frm = new FrmUsuarios(userPermissions["FrmUsuarios"]);
             frm.ShowDialog();
         }
+
+        private void tsExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void tsFrmProductos_Click(object sender, EventArgs e)
+        {
+            FrmProductos frmp = new FrmProductos(userPermissions["FrmProductos"]);
+            frmp.ShowDialog();
+        }
     }
 }

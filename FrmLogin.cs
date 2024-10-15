@@ -53,5 +53,10 @@ namespace ProyectoAgencia
                 MessageBox.Show("Error de credenciales, revise");
             }
         }
+
+        private void btncancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

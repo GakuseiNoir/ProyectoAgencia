@@ -32,7 +32,7 @@
             this.tsFrmProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsFrmHerramientas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsFrmUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mst.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             this.tsFrmProductos,
             this.tsFrmHerramientas,
             this.tsFrmUsuarios,
-            this.btnExit});
+            this.tsExit});
             this.mst.Location = new System.Drawing.Point(0, 0);
             this.mst.Name = "mst";
             this.mst.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -58,6 +58,7 @@
             this.tsFrmProductos.Name = "tsFrmProductos";
             this.tsFrmProductos.Size = new System.Drawing.Size(131, 29);
             this.tsFrmProductos.Text = "PRODUCTOS";
+            this.tsFrmProductos.Click += new System.EventHandler(this.tsFrmProductos_Click);
             // 
             // tsFrmHerramientas
             // 
@@ -74,12 +75,13 @@
             this.tsFrmUsuarios.Text = "REGISTRO USERS";
             this.tsFrmUsuarios.Click += new System.EventHandler(this.tsFrmUsuarios_Click);
             // 
-            // btnExit
+            // tsExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.Red;
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(62, 29);
-            this.btnExit.Text = "EXIT";
+            this.tsExit.BackColor = System.Drawing.Color.Red;
+            this.tsExit.Name = "tsExit";
+            this.tsExit.Size = new System.Drawing.Size(62, 29);
+            this.tsExit.Text = "EXIT";
+            this.tsExit.Click += new System.EventHandler(this.tsExit_Click);
             // 
             // FrmMenu
             // 
@@ -89,7 +91,7 @@
             this.Controls.Add(this.mst);
             this.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.Name = "FrmMenu";
-            this.Text = "Form1";
+            this.Text = "FrmMenu";
             this.mst.ResumeLayout(false);
             this.mst.PerformLayout();
             this.ResumeLayout(false);
@@ -103,7 +105,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsFrmProductos;
         private System.Windows.Forms.ToolStripMenuItem tsFrmHerramientas;
         private System.Windows.Forms.ToolStripMenuItem tsFrmUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem btnExit;
+        private System.Windows.Forms.ToolStripMenuItem tsExit;
     }
 }
 
